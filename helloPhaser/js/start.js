@@ -5,14 +5,14 @@ var game = new Phaser.Game(500,500,Phaser.AUTO, 'area', {
 });
 
 function preload() {
+  this.load.image('background', 'assets/images/background.png')
+  this.load.image('monkey', 'assets/images/monkey.png')
+
 }
 
 function create() {
-  var helloText = game.add.text(250, 250,'Hello, Phaser!', {
-    fontSize: '32px',
-    fill: '#00F'
-  });
-  helloText.anchor.set(0.5,0.5);
+  console.log('new function working');
+  this.background = this.game.add.sprite(0,0, 'background');
 }
 
 function update() {

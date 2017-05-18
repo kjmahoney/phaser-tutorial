@@ -11,9 +11,5 @@ app.use(function(req, res, next) {
 
 app.use(express.static(__dirname + '/' + sitePath));
 app.listen(port, function() {
-  console.log('server running at' + port);
-});
-
-app.get('/', function (req, res) {
-  res.render('index', {});
+  console.log('server running at ' + port);
 });
