@@ -1,0 +1,47 @@
+//SETTINGS
+
+//colors
+$color-light-brown: #C29A5C;
+
+//sizes
+$space-16: 16px;
+
+.game {
+  background-color: $color-light-brown;
+}
+
+.game__container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: $space-16;
+}
+
+.game__container--button {
+  padding: 0;
+}
+
+.game__button {
+  height: 200px;
+  position: relative;
+  width: 300px;
+
+  &:hover {
+    opacity: .5;
+  }
+
+  &:hover + .game__message {
+    font-size: 32px;
+  }
+}
+
+.game__message {
+  font-family: 'Barrio', cursive;
+  position: absolute;
+  pointer-events: none;
+}
+
+body {
+ margin: 0;
+}

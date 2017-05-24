@@ -1,0 +1,31 @@
+.game {
+  background-color: #C29A5C; }
+
+.game__container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px; }
+
+.game__container--button {
+  padding: 0; }
+
+.game__button {
+  height: 200px;
+  position: relative;
+  width: 300px; }
+  .game__button:hover {
+    opacity: .5; }
+  .game__button:hover + .game__message {
+    font-size: 32px; }
+
+.game__message {
+  font-family: 'Barrio', cursive;
+  position: absolute;
+  pointer-events: none; }
+
+body {
+  margin: 0; }
+
+/*# sourceMappingURL=output.css.map */
