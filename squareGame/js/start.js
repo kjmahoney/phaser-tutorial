@@ -37,7 +37,10 @@ var mainState = {
 
     game.physics.arcade.collide(this.player, this.walls);
 
-    var speed = 250;
+    game.physics.arcade.overlap(this.player, this.enemy,
+      this.handlePlayerDeath, null, this);
+
+    var speed = 400;
     this.player.body.velocity.y = 0;
     this.player.body.velocity.x = 0;
 
@@ -51,8 +54,37 @@ var mainState = {
     } else if (this.cursor.right.isDown) {
       this.player.body.velocity.x += speed;
     }
+  },
+  handlePlayerDeath: function(player, enemy) {
+    player.kill();
+    game.state.start('gameOver');
+  }
+}
+
+var gameOverState = {
+  create: function() {
+    var style = {font: "20px Arial", fill: "#fff",align:"left",boundsAlignH: "top",boundsAlignV:"top"};
+
+    label = game.add.text(game.world.width / 2, game.world.height / 2,
+      'GAME OVER\nPress SPACE to restart',
+      {
+        font: '22px Arial',
+        fill: '#fff',
+        align: 'center',
+        boundsAlignH: "top",
+        boundsAlignV:"top"
+      });
+    label.anchor.setTo(0.5, 0.5);
+
+    this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR)
+  },
+  update: function() {
+    if (this.spacebar.isDown) {
+      game.state.start('main');
+    }
   }
 }
 
 game.state.add('main',mainState);
 game.state.start('main');
+game.state.add('gameOver', gameOverState)
